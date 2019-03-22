@@ -2,7 +2,6 @@ plugins {
   id("org.springframework.boot").version("2.1.3.RELEASE")
   kotlin("plugin.spring").version("1.3.21")
   kotlin("jvm").version("1.3.21")
-  kotlin("kapt").version("1.3.21")
 }
 
 repositories {
@@ -21,12 +20,14 @@ subprojects {
   tasks.compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
     kotlinOptions.apiVersion = "1.3"
+    kotlinOptions.languageVersion = "1.3"
     kotlinOptions.freeCompilerArgs = listOf("-Xjsr305=strict")
   }
 
   tasks.compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
     kotlinOptions.apiVersion = "1.3"
+    kotlinOptions.languageVersion = "1.3"
     kotlinOptions.freeCompilerArgs = listOf("-Xjsr305=strict")
   }
 

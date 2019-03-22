@@ -1,11 +1,11 @@
-package dev.coolcode.clientservice
+package dev.coolcode.client
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ClientServiceApplication
+class Application
 
 fun main(args: Array<String>) {
-  runApplication<ClientServiceApplication>(*args)
+  runApplication<Application>(*args)
 }

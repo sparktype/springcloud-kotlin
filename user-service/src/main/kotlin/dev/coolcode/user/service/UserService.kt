@@ -1,8 +1,8 @@
-package dev.coolcode.common.service
+package dev.coolcode.user.service
 
-import dev.coolcode.common.domain.User
-import dev.coolcode.common.exception.UserNotFoundException
-import dev.coolcode.common.repository.UserRepository
+import dev.coolcode.domain.User
+import dev.coolcode.exception.UserNotFoundException
+import dev.coolcode.user.repository.UserRepository
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 

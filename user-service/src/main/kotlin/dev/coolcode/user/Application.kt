@@ -1,4 +1,4 @@
-package dev.coolcode.common
+package dev.coolcode.user
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

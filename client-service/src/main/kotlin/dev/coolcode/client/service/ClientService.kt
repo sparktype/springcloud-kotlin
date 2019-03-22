@@ -1,8 +1,8 @@
-package dev.coolcode.clientservice.service
+package dev.coolcode.client.service
 
-import dev.coolcode.clientservice.domain.Client
-import dev.coolcode.clientservice.exception.ClientNotFoundException
-import dev.coolcode.clientservice.repository.ClientRepository
+import dev.coolcode.client.repository.ClientRepository
+import dev.coolcode.domain.Client
+import dev.coolcode.exception.ClientNotFoundException
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 

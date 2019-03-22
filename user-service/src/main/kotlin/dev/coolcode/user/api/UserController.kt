@@ -1,7 +1,8 @@
-package dev.coolcode.common.api
+package dev.coolcode.user.api
 
-import dev.coolcode.common.domain.User
-import dev.coolcode.common.service.UserService
+import dev.coolcode.domain.User
+import dev.coolcode.user.service.UserService
+import dev.coolcode.util.createdResponseEntity
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -11,8 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder.fromMethodName
-import java.net.URI
 
 
 @RestController
@@ -24,19 +23,18 @@ class UserController(val service: UserService) {
 
   @PostMapping
   fun create(@RequestBody user: User) =
-    service.create(user).let { ResponseEntity.created(userUri(it.id)).body(it) }
+    service.create(user).let {
+      createdResponseEntity(this.javaClass, "detail", arrayOf(it.id)).body(it)
+    }
 
   @PutMapping("/{id}")
   fun modify(@PathVariable id: Long, user: User) =
-    service.modify(id, user).let { ResponseEntity.created(userUri(it.id)).body(it) }
+    service.modify(id, user).let {
+      createdResponseEntity(this.javaClass, "detail", arrayOf(it.id)).body(it)
+    }
 
   @DeleteMapping("/{id}")
   fun delete(@PathVariable id: Long): ResponseEntity<Void> = service.remove(id).let {
     ResponseEntity.noContent().build()
   }
-
-  private fun userUri(id: Long): URI = fromMethodName(
-    UserController::class.java, "detail", id
-  ).build().toUri()
-
 }
