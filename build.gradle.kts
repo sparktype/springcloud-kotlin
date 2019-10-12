@@ -38,13 +38,5 @@ subprojects {
             }
             dependsOn(processResources) // kotlin 에서 ConfigurationProperties
         }
-
-
-        compileTestKotlin {
-            kotlinOptions {
-                freeCompilerArgs = listOf("-Xjsr305=strict")
-                jvmTarget = "1.8"
-            }
-        }
     }
 }
